@@ -1,0 +1,1 @@
+Basic nodejs scripts for managing AWS SQS
