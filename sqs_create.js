@@ -1,7 +1,10 @@
 var AWS = require('aws-sdk');
 // Set the region 
 AWS.config.update({region: 'REGION', 
-endpoint:'http://localhost:4576'});
+hostname:'localstack',
+endpoint:'http://localstack:4576',
+accessKeyId:'test',
+secretAccessKey:'test'});
 
 // Create an SQS service object
 var sqs = new AWS.SQS({apiVersion: '2012-11-05'});

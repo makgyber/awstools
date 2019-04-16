@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  localstack:
+    image: localstack/localstack
+    container_name: localstack_container
+    ports:
+      - 4576:4576
+    environment:
+      - SERVICES=sqs:4576
+      - DEFAULT_REGION=us-east-1
+      - DEBUG=1
+      - START_WEB=0
+      - HOSTNAME=localstack
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    networks:
+      - lsNetwork
+  app:
+    build: .
+    container_name: node_container
+    links:
+     - localstack
+    environment:
+      - AWS_SECRET_KEY=newpassword
+      - AWS_ACCESS_KEY=postgres
+    depends_on:
+      - localstack
+    networks:
+      - appNetwork
+
+networks:
+  appNetwork:
+  lsNetwork:
