@@ -1,6 +1,6 @@
 var AWS = require('aws-sdk');
 // Set the region 
-AWS.config.update({region: 'REGION', 
+AWS.config.update({region: 'eu-west-1', 
 hostname:'localstack',
 endpoint:'http://localstack:4576',
 accessKeyId:'test',
@@ -10,13 +10,12 @@ secretAccessKey:'test'});
 var sqs = new AWS.SQS({apiVersion: '2012-11-05'});
 
 var params = {
-  QueueName: 'payment_instructions.fifo',
+  QueueName: 'payment-instructions.fifo',
   Attributes: {
     'DelaySeconds': '1',
     'MessageRetentionPeriod': '86400',
     'FifoQueue': 'true',
-    'MessageGroupId': "messageGroup1",
-    'MessageDeduplicationId': "MessageDeduplicationId1",
+    'MessageGroupId': "messageGroup1"
   }
 };
 

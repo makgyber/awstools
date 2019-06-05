@@ -1,0 +1,8 @@
+#!/bin/bash
+export AWS_ACCESS_KEY=AKIARLJ4B4MSIG5JTARA
+export AWS_ACCESS_KEY_ID=AKIARLJ4B4MSIG5JTARA
+export AWS_SECRET_KEY=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
+export AWS_SECRET_ACCESS_KEY=7PFoBMpkrgdElAtu52LsRgF6gFdQBf+Lv6syKoKk
+export AWS_REGION=eu-west-1
+export AWS_QUEUE_NAME=efor_testing.fifo
+export AWS_SDK_LOAD_CONFIG=true
